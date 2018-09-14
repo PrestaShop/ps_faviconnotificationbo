@@ -85,11 +85,7 @@ class Ps_faviconnotificationbo extends Module
         Configuration::updateValue('CHECKBOX_MESSAGE', '1');
         Configuration::updateValue('BACKGROUND_COLOR_FAVICONBO', '#DF0067');
         Configuration::updateValue('TEXT_COLOR_FAVICONBO', '#ffffff');
-        if (parent::install() && $this->registerHook('BackOfficeHeader') && $this->installTab() == false) {
-            return false;
-        }
-
-        return true;
+        return parent::install() && $this->registerHook('BackOfficeHeader') && $this->installTab();
     }
 
     public function uninstall()
@@ -101,10 +97,10 @@ class Ps_faviconnotificationbo extends Module
             $this->uninstallTab()) {
             return true;
         } else {
-            $this->_errors[] = $this->l('There was an error during the uninstallation. Please contact us through Addons website');
+            $this->_errors[] = $this->l('There was an error during the uninstallation.');
             return false;
         }
-        return parent::uninstall() && $this->unregisterHook('BackOfficeHeader');
+        return parent::uninstall();
     }
 
     /**
@@ -115,6 +111,7 @@ class Ps_faviconnotificationbo extends Module
      */
     public function installTab()
     {
+        $return = true;
         foreach ($this->controllers as $controller_name) {
             $tab = new Tab();
             $tab->active = 1;
@@ -125,11 +122,7 @@ class Ps_faviconnotificationbo extends Module
             }
             $tab->id_parent = -1;
             $tab->module = $this->name;
-            if ($tab->add() == true) {
-                $return = true;
-            } else {
-                $return = false;
-            }
+            $return &= $this->add();
         }
         return $return;
     }
@@ -275,8 +268,7 @@ class Ps_faviconnotificationbo extends Module
         }
         $params = $this->getParams();
         // controller url
-        $link = new Link();
-        $adminController = $link->getAdminLink($this->controllers['adminAjax']);
+        $adminController = $this->context->link->getAdminLink($this->controllers['adminAjax']);
 
         $this->context->smarty->assign(array(
             'bofavicon_params' => $params,
