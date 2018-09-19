@@ -27,13 +27,13 @@
     <div id="faviconbo-menu">
         <div class="col-lg-2">
             <div class="list-group" v-on:click.prevent>
-                <a href="#" class="list-group-item" v-bind:class="{ 'active': isActive('faviconConfiguration') }" v-on:click="makeActive('faviconConfiguration')"><i class="fa fa-gavel"></i> {l s='Get started' mod='ps_faviconnotificationbo'}</a>
+                <a href="#" class="list-group-item" v-bind:class="{ 'active': isActive('faviconConfiguration') }" v-on:click="makeActive('faviconConfiguration')"><i class="fa fa-gavel"></i> {l s='Get started' d='Modules.Faviconnotificationbo.Admin'}</a>
                 {if ($apifaq != '')}
-                    <a href="#" class="list-group-item" v-bind:class="{ 'active': isActive('faq') }" v-on:click="makeActive('faq')"><i class="fa fa-question-circle"></i> {l s='Help' mod='ps_faviconnotificationbo'}</a>
+                    <a href="#" class="list-group-item" v-bind:class="{ 'active': isActive('faq') }" v-on:click="makeActive('faq')"><i class="fa fa-question-circle"></i> {l s='Help' d='Modules.Faviconnotificationbo.Admin'}</a>
                 {/if}
             </div>
             <div class="list-group" v-on:click.prevent>
-                <a class="list-group-item" style="text-align:center"><i class="icon-info"></i> {l s='Version' mod='ps_faviconnotificationbo'} {$module_version|escape:'htmlall':'UTF-8'} | <i class="icon-info"></i> PrestaShop {$ps_version|escape:'htmlall':'UTF-8'}</a>
+                <a class="list-group-item" style="text-align:center"><i class="icon-info"></i> {l s='Version' d='Modules.Faviconnotificationbo.Admin'} {$module_version|escape:'htmlall':'UTF-8'} | <i class="icon-info"></i> PrestaShop {$ps_version|escape:'htmlall':'UTF-8'}</a>
             </div>
         </div>
     </div>
