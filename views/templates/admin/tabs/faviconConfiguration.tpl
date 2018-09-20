@@ -15,11 +15,11 @@
 <div class="panel col-lg-10 right-panel">
     <form method="post" action="{$moduleAdminLink|escape:'htmlall':'UTF-8'}&page=faviconConfiguration" class="form-horizontal">
         <h3>
-            {l s='Order Notifications on the Favicon Configuration' d='Modules.Faviconnotificationbo.Admin'}
+            {l s='Configuration' d='Modules.Faviconnotificationbo.Admin'}
         </h3>
         <div class="form-group row">
             <div class="title">
-                {l s='Show notification on browser tab for' d='Modules.Faviconnotificationbo.Admin'}
+                {l s='Display notifications in the browser tab for:' d='Modules.Faviconnotificationbo.Admin'}
             </div>
             <ol>
                 <div class="col-lg-5 col-md-4 col-xs-10">
@@ -31,9 +31,9 @@
                             <div class="input-group fixed-width-lg">
                                 <span class="switch prestashop-switch fixed-width-lg">
                                 <input class="yes" type="radio" name="CHECKBOX_ORDER" id="checkbox_track_new_orders_on" value="1" {if $bofavicon_params.CHECKBOX_ORDER eq 1}checked="checked"{/if}>
-                                <label for="checkbox_track_new_orders_on" class="radioCheck">{l s='YES' d='Modules.Faviconnotificationbo.Admin'}</label>
+                                <label for="checkbox_track_new_orders_on" class="radioCheck">{l s='Yes' d='Admin.Global'}</label>
                                 <input class="no" type="radio" name="CHECKBOX_ORDER" id="checkbox_track_new_orders_off" value="0" {if $bofavicon_params.CHECKBOX_ORDER eq 0}checked="checked"{/if}>
-                                <label for="checkbox_track_new_orders_off" class="radioCheck">{l s='NO' d='Modules.Faviconnotificationbo.Admin'}</label>
+                                <label for="checkbox_track_new_orders_off" class="radioCheck">{l s='No' d='Admin.Global'}</label>
                                 <a class="slide-button btn"></a>
                                 </span>
                             </div>
@@ -41,15 +41,15 @@
                     </div>
                     <div class="form-group">
                         <div class="control-label col-lg-5 col-md-4 col-xs-10">
-                            <label class="labelbutton">{l s='New Customers' d='Modules.Faviconnotificationbo.Admin'}</label>
+                            <label class="labelbutton">{l s='New Customers' d='Admin.Navigation.Header'}</label>
                         </div>
                         <div>
                             <div class="input-group fixed-width-lg">
                                 <span class="switch prestashop-switch fixed-width-lg">
                                 <input class="yes" type="radio" name="CHECKBOX_CUSTOMER" id="checkbox_track_new_customers_on" value="1" {if $bofavicon_params.CHECKBOX_CUSTOMER eq 1}checked="checked"{/if}>
-                                <label for="checkbox_track_new_customers_on" class="radioCheck">{l s='YES' d='Modules.Faviconnotificationbo.Admin'}</label>
+                                <label for="checkbox_track_new_customers_on" class="radioCheck">{l s='Yes' d='Admin.Global'}</label>
                                 <input class="no" type="radio" name="CHECKBOX_CUSTOMER" id="checkbox_track_new_customers_off" value="0" {if $bofavicon_params.CHECKBOX_CUSTOMER eq 0}checked="checked"{/if}>
-                                <label for="checkbox_track_new_customers_off" class="radioCheck">{l s='NO' d='Modules.Faviconnotificationbo.Admin'}</label>
+                                <label for="checkbox_track_new_customers_off" class="radioCheck">{l s='No' d='Admin.Global'}</label>
                                 <a class="slide-button btn"></a>
                                 </span>
                             </div>
@@ -57,15 +57,15 @@
                     </div>
                     <div class="form-group">
                         <div class="control-label col-lg-5 col-md-4 col-xs-10">
-                            <label class="labelbutton">{l s='New Messages' d='Modules.Faviconnotificationbo.Admin'}</label>
+                            <label class="labelbutton">{l s='New Messages' d='Admin.Orderscustomers.Feature'}</label>
                         </div>
                         <div>
                             <div class="input-group fixed-width-lg">
                                 <span class="switch prestashop-switch fixed-width-lg">
                                 <input class="yes" type="radio" name="CHECKBOX_MESSAGE" id="checkbox_track_new_messages_on" value="1" {if $bofavicon_params.CHECKBOX_MESSAGE eq 1}checked="checked"{/if}>
-                                <label for="checkbox_track_new_messages_on" class="radioCheck">{l s='YES' d='Modules.Faviconnotificationbo.Admin'}</label>
+                                <label for="checkbox_track_new_messages_on" class="radioCheck">{l s='Yes' d='Admin.Global'}</label>
                                 <input class="no" type="radio" name="CHECKBOX_MESSAGE" id="checkbox_track_new_messages_off" value="0" {if $bofavicon_params.CHECKBOX_MESSAGE eq 0}checked="checked"{/if}>
-                                <label for="checkbox_track_new_messages_off" class="radioCheck">{l s='NO' d='Modules.Faviconnotificationbo.Admin'}</label>
+                                <label for="checkbox_track_new_messages_off" class="radioCheck">{l s='No' d='Admin.Global'}</label>
                                 <a class="slide-button btn"></a>
                                 </span>
                             </div>
@@ -97,7 +97,7 @@
             </div>
         </div>
         <div class="panel-footer">
-            <button type="submit" value="1" id="module_form_submit_btn" name="submitFavIconConf" class="btn btn-default pull-right"><i class="process-icon-save"></i>{l s='Save' d='Modules.Faviconnotificationbo.Admin'}</button>
+            <button type="submit" value="1" id="module_form_submit_btn" name="submitFavIconConf" class="btn btn-default pull-right"><i class="process-icon-save"></i>{l s='Save' d='Admin.Actions'}</button>
         </div>
     </form>
 </div>

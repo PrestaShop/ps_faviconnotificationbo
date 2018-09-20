@@ -80,12 +80,13 @@ class Ps_faviconnotificationbo extends Module
      */
     public function install()
     {
+
         Configuration::updateValue('CHECKBOX_ORDER', '1');
         Configuration::updateValue('CHECKBOX_CUSTOMER', '1');
         Configuration::updateValue('CHECKBOX_MESSAGE', '1');
         Configuration::updateValue('BACKGROUND_COLOR_FAVICONBO', '#DF0067');
         Configuration::updateValue('TEXT_COLOR_FAVICONBO', '#ffffff');
-        return parent::install() && $this->registerHook('BackOfficeHeader') && $this->installTab();
+        return (parent::install() && $this->registerHook('BackOfficeHeader') && $this->installTab());
     }
 
     public function uninstall()
@@ -100,7 +101,6 @@ class Ps_faviconnotificationbo extends Module
             $this->_errors[] = $this->l('There was an error during the uninstallation.');
             return false;
         }
-        return parent::uninstall();
     }
 
     /**
@@ -111,20 +111,16 @@ class Ps_faviconnotificationbo extends Module
      */
     public function installTab()
     {
-        $return = true;
-        foreach ($this->controllers as $controller_name) {
-            $tab = new Tab();
-            $tab->active = 1;
-            $tab->class_name = $controller_name;
-            $tab->name = array();
-            foreach (Language::getLanguages(true) as $lang) {
-                $tab->name[$lang['id_lang']] = $this->name;
-            }
-            $tab->id_parent = -1;
-            $tab->module = $this->name;
-            $return &= $this->add();
+        $tab = new Tab();
+        $tab->active = 1;
+        $tab->class_name = 'AdminAjaxFaviconBO';
+        $tab->name = array();
+        foreach (Language::getLanguages(true) as $lang) {
+            $tab->name[$lang['id_lang']] = $this->name;
         }
-        return $return;
+        $tab->id_parent = -1;
+        $tab->module = $this->name;
+        return $tab->add();
     }
 
     /**
@@ -135,18 +131,16 @@ class Ps_faviconnotificationbo extends Module
      */
     public function uninstallTab()
     {
-        foreach ($this->controllers as $controller_name) {
-            $id_tab = (int)Tab::getIdFromClassName($controller_name);
-            if ($id_tab) {
-                $tab = new Tab($id_tab);
-                if (Validate::isLoadedObject($tab)) {
-                    return ($tab->delete());
-                } else {
-                    $return = false;
-                }
+        $id_tab = (int)Tab::getIdFromClassName('AdminAjaxFaviconBO');
+        if ($id_tab) {
+            $tab = new Tab($id_tab);
+            if (Validate::isLoadedObject($tab)) {
+                return ($tab->delete());
             } else {
-                $return = true;
+                $return = false;
             }
+        } else {
+            $return = true;
         }
         return $return;
     }
@@ -268,7 +262,7 @@ class Ps_faviconnotificationbo extends Module
         }
         $params = $this->getParams();
         // controller url
-        $adminController = $this->context->link->getAdminLink($this->controllers['adminAjax']);
+        $adminController = $this->context->link->getAdminLink('AdminAjaxFaviconBO');
 
         $this->context->smarty->assign(array(
             'bofavicon_params' => $params,

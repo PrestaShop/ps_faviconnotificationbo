@@ -19,6 +19,6 @@ class AdminAjaxFaviconBOController extends ModuleAdminController
     public function ajaxProcessGetNotifications()
     {
         $notification = new Notification;
-        $this->ajaxRender(json_encode($notification->getLastElements()));
+        $this->ajaxDie(json_encode($notification->getLastElements()));
     }
 }

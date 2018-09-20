@@ -28,9 +28,6 @@
         <div class="col-lg-2">
             <div class="list-group" v-on:click.prevent>
                 <a href="#" class="list-group-item" v-bind:class="{ 'active': isActive('faviconConfiguration') }" v-on:click="makeActive('faviconConfiguration')"><i class="fa fa-gavel"></i> {l s='Get started' d='Modules.Faviconnotificationbo.Admin'}</a>
-                {if ($apifaq != '')}
-                    <a href="#" class="list-group-item" v-bind:class="{ 'active': isActive('faq') }" v-on:click="makeActive('faq')"><i class="fa fa-question-circle"></i> {l s='Help' d='Modules.Faviconnotificationbo.Admin'}</a>
-                {/if}
             </div>
             <div class="list-group" v-on:click.prevent>
                 <a class="list-group-item" style="text-align:center"><i class="icon-info"></i> {l s='Version' d='Modules.Faviconnotificationbo.Admin'} {$module_version|escape:'htmlall':'UTF-8'} | <i class="icon-info"></i> PrestaShop {$ps_version|escape:'htmlall':'UTF-8'}</a>
@@ -41,12 +38,6 @@
     {* list your admin tpl *}
     <div id="faviconConfiguration" class="faviconbo_menu addons-hide">
         {include file="./tabs/faviconConfiguration.tpl"}
-    </div>
-
-    <div id="faq" class="faviconbo_menu addons-hide">
-        {if ($apifaq != '')}
-            {include file="./tabs/help.tpl"}
-        {/if}
     </div>
 
 </div>
