@@ -30,7 +30,7 @@
                 <a href="#" class="list-group-item" v-bind:class="{ 'active': isActive('faviconConfiguration') }" v-on:click="makeActive('faviconConfiguration')"><i class="fa fa-gavel"></i> {l s='Get started' d='Modules.Faviconnotificationbo.Admin'}</a>
             </div>
             <div class="list-group" v-on:click.prevent>
-                <a class="list-group-item" style="text-align:center"><i class="icon-info"></i> {l s='Version' d='Modules.Faviconnotificationbo.Admin'} {$module_version|escape:'htmlall':'UTF-8'} | <i class="icon-info"></i> PrestaShop {$ps_version|escape:'htmlall':'UTF-8'}</a>
+                <a class="list-group-item" style="text-align:center"><i class="icon-info"></i> {l s='Version' d='Admin.Global'} {$module_version|escape:'htmlall':'UTF-8'} | <i class="icon-info"></i> PrestaShop {$ps_version|escape:'htmlall':'UTF-8'}</a>
             </div>
         </div>
     </div>

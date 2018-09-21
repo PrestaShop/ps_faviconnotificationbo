@@ -15,7 +15,7 @@
 <div class="panel col-lg-10 right-panel">
     <form method="post" action="{$moduleAdminLink|escape:'htmlall':'UTF-8'}&page=faviconConfiguration" class="form-horizontal">
         <h3>
-            {l s='Configuration' d='Modules.Faviconnotificationbo.Admin'}
+            {l s='Configuration' d='Admin.Global'}
         </h3>
         <div class="form-group row">
             <div class="title">
@@ -25,7 +25,7 @@
                 <div class="col-lg-5 col-md-4 col-xs-10">
                     <div class="form-group">
                         <div class="control-label col-lg-5 col-md-4 col-xs-10">
-                            <label class="labelbutton">{l s='New Orders' d='Modules.Faviconnotificationbo.Admin'}</label>
+                            <label class="labelbutton">{l s='New orders' d='Modules.Faviconnotificationbo.Admin'}</label>
                         </div>
                         <div>
                             <div class="input-group fixed-width-lg">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <div class="control-label col-lg-5 col-md-4 col-xs-10">
-                            <label class="labelbutton">{l s='New Customers' d='Admin.Navigation.Header'}</label>
+                            <label class="labelbutton">{l s='New customers' d='Admin.Navigation.Header'}</label>
                         </div>
                         <div>
                             <div class="input-group fixed-width-lg">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <div class="control-label col-lg-5 col-md-4 col-xs-10">
-                            <label class="labelbutton">{l s='New Messages' d='Admin.Orderscustomers.Feature'}</label>
+                            <label class="labelbutton">{l s='New messages' d='Admin.Orderscustomers.Feature'}</label>
                         </div>
                         <div>
                             <div class="input-group fixed-width-lg">
@@ -77,7 +77,7 @@
         <div class="col-lg-5">
             <div class="form-group">
                 <div id="divcolorpicker" class="control-label col-lg-6 col-md-4 col-xs-10">
-                    <label class="labelbutton" for="faviconbo_input_backgroundcolor">{l s='Notification Background Color' d='Modules.Faviconnotificationbo.Admin'}</label>
+                    <label class="labelbutton" for="faviconbo_input_backgroundcolor">{l s='Notification background color' d='Modules.Faviconnotificationbo.Admin'}</label>
                 </div>
                 <div>
                     <div class="input-group fixed-width-lg">
@@ -87,7 +87,7 @@
             </div>
             <div class="form-group">
                 <div id="divcolorpicker" class="control-label col-lg-6 col-md-4 col-xs-10">
-                    <label class="labelbutton" for="faviconbo_input_textcolor">{l s='Notification Text Color' d='Modules.Faviconnotificationbo.Admin'}</label>
+                    <label class="labelbutton" for="faviconbo_input_textcolor">{l s='Notification text color' d='Modules.Faviconnotificationbo.Admin'}</label>
                 </div>
                 <div>
                     <div class="input-group fixed-width-lg">
