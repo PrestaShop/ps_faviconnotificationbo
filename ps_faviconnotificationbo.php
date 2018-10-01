@@ -256,6 +256,9 @@ class Ps_faviconnotificationbo extends Module
 
     public function hookBackOfficeHeader($params)
     {
+        if (!$this->active) {
+            return;
+        }
         $this->loadGlobalAsset();
         if (Tools::isSubmit('submitFavIconConf')) {
             $this->saveForm();
@@ -263,7 +266,6 @@ class Ps_faviconnotificationbo extends Module
         $params = $this->getParams();
         // controller url
         $adminController = $this->context->link->getAdminLink('AdminAjaxFaviconBO');
-
         $this->context->smarty->assign(array(
             'bofavicon_params' => $params,
             'adminController' => $adminController,
