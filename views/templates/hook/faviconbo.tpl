@@ -24,8 +24,6 @@
 *}
 
 <script type="text/javascript">
-
-
 /*
  * Return total of notification per checkbox checked
  * @param  int nbNewCustomer
@@ -105,7 +103,6 @@ $(document).ready(function() {
     $(document).on('click', '#subtab-AdminOrders', function (e) {
         updateNotifications('order');
     });
-
 });
 </script>
 {* Use this if you want to send php var to your js *}
