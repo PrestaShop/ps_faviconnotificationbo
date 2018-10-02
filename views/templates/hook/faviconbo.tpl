@@ -98,7 +98,6 @@ $(document).ready(function() {
     //update favicon when you click on the customer service tab into your backoffice
     $(document).on('click', '#subtab-AdminCustomerThreads', function (e) {
         updateNotifications('customer_message');
-
     });
     //update favicon when you click on the order tab into your backoffice
     $(document).on('click', '#subtab-AdminOrders', function (e) {
