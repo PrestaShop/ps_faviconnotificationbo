@@ -88,7 +88,8 @@ $(document).ready(function() {
     });
     loadAjax(adminController)
     setInterval(function() {
-    loadAjax(adminController);}, 60000); //refresh notification every 60 seconds
+        loadAjax(adminController);
+    }, 60000); //refresh notification every 60 seconds
 
     //update favicon when you click on the customer tab into your backoffice
     $(document).on('click', '#subtab-AdminCustomers', function (e) {

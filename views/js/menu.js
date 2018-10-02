@@ -48,4 +48,6 @@ $(window).ready(function() {
             }
         }
     });
+
+    $('.mColorPickerFaviconInput').mColorPicker({imageFolder: baseAdminDir + '../img/admin/'});
 });

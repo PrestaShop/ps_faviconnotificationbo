@@ -76,22 +76,22 @@
         </div>
         <div class="col-lg-5">
             <div class="form-group">
-                <div id="divcolorpicker" class="control-label col-lg-6 col-md-4 col-xs-10">
+                <div class="divcolorpicker control-label col-lg-6 col-md-4 col-xs-10">
                     <label class="labelbutton" for="faviconbo_input_backgroundcolor">{l s='Notification background color' d='Modules.Faviconnotificationbo.Admin'}</label>
                 </div>
                 <div>
                     <div class="input-group fixed-width-lg">
-                        <input id="BACKGROUND_COLOR_FAVICONBO" type="color" data-hex="true" class="color mColorPickerInput mColorPicker" value="{if isset($bofavicon_params.BACKGROUND_COLOR_FAVICONBO)}{$bofavicon_params.BACKGROUND_COLOR_FAVICONBO|escape:'quotes'}{/if}" name="BACKGROUND_COLOR_FAVICONBO"/>
+                        <input id="BACKGROUND_COLOR_FAVICONBO" type="text" data-hex="true" class="mColorPickerFaviconInput" value="{if isset($bofavicon_params.BACKGROUND_COLOR_FAVICONBO)}{$bofavicon_params.BACKGROUND_COLOR_FAVICONBO|escape:'quotes'}{/if}" name="BACKGROUND_COLOR_FAVICONBO"/>
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <div id="divcolorpicker" class="control-label col-lg-6 col-md-4 col-xs-10">
+                <div class="divcolorpicker control-label col-lg-6 col-md-4 col-xs-10">
                     <label class="labelbutton" for="faviconbo_input_textcolor">{l s='Notification text color' d='Modules.Faviconnotificationbo.Admin'}</label>
                 </div>
                 <div>
                     <div class="input-group fixed-width-lg">
-                        <input id="TEXT_COLOR_FAVICONBO" type="color" data-hex="true" class="color mColorPickerInput mColorPicker" value="{if isset($bofavicon_params.TEXT_COLOR_FAVICONBO)}{$bofavicon_params.TEXT_COLOR_FAVICONBO|escape:'quotes'}{/if}" name="TEXT_COLOR_FAVICONBO"/>
+                        <input id="TEXT_COLOR_FAVICONBO" type="text" data-hex="true" class="mColorPickerFaviconInput" value="{if isset($bofavicon_params.TEXT_COLOR_FAVICONBO)}{$bofavicon_params.TEXT_COLOR_FAVICONBO|escape:'quotes'}{/if}" name="TEXT_COLOR_FAVICONBO"/>
                     </div>
                 </div>
             </div>
