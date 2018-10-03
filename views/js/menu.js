@@ -48,4 +48,7 @@ $(window).ready(function() {
             }
         }
     });
+    //Because mColorPicker doesn't care about the passed parameters
+    $('#mColorPicker').remove();
+    $('.mColorPickerFaviconInput').mColorPicker({imageFolder: baseAdminDir + '../img/admin/'});
 });

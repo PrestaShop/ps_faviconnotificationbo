@@ -56,7 +56,7 @@ class Ps_faviconnotificationbo extends Module
         parent::__construct();
 
         $this->displayName = $this->l('Order Notifications on the Favicon');
-        $this->description = $this->l('Get notified when you get new order, new client or new message directly on your browser tab of your back office even if your working on another page');
+        $this->description = $this->l('Get notified when you get new order, new client or new message directly on your browser tab of your back office even if you are working on another page');
 
         // Settings paths
         $this->js_path = $this->_path.'views/js/';
@@ -256,6 +256,9 @@ class Ps_faviconnotificationbo extends Module
 
     public function hookBackOfficeHeader($params)
     {
+        if (!$this->active) {
+            return;
+        }
         $this->loadGlobalAsset();
         if (Tools::isSubmit('submitFavIconConf')) {
             $this->saveForm();
@@ -263,7 +266,6 @@ class Ps_faviconnotificationbo extends Module
         $params = $this->getParams();
         // controller url
         $adminController = $this->context->link->getAdminLink('AdminAjaxFaviconBO');
-
         $this->context->smarty->assign(array(
             'bofavicon_params' => $params,
             'adminController' => $adminController,

@@ -68,6 +68,16 @@ function loadAjax(adminController) {
     });
 }
 
+function updateNotifications(type) {
+  $.post(
+    baseAdminDir + "ajax.php",
+    {
+      "updateElementEmployee": "1",
+      "updateElementEmployeeType": type
+    }
+  );
+}
+
 $(document).ready(function() {
     adminController = adminController.replace(/\amp;/g, '');
     //set the configuration of the favicon
@@ -78,7 +88,21 @@ $(document).ready(function() {
     });
     loadAjax(adminController)
     setInterval(function() {
-    loadAjax(adminController);}, 60000); //refresh notification every 60 seconds
+        loadAjax(adminController);
+    }, 60000); //refresh notification every 60 seconds
+
+    //update favicon when you click on the customer tab into your backoffice
+    $(document).on('click', '#subtab-AdminCustomers', function (e) {
+        updateNotifications('customer');
+    });
+    //update favicon when you click on the customer service tab into your backoffice
+    $(document).on('click', '#subtab-AdminCustomerThreads', function (e) {
+        updateNotifications('customer_message');
+    });
+    //update favicon when you click on the order tab into your backoffice
+    $(document).on('click', '#subtab-AdminOrders', function (e) {
+        updateNotifications('order');
+    });
 });
 </script>
 {* Use this if you want to send php var to your js *}
