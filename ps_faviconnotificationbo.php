@@ -56,7 +56,7 @@ class Ps_faviconnotificationbo extends Module
         parent::__construct();
 
         $this->displayName = $this->trans('Order Notifications on the Favicon', array(), 'Modules.Faviconnotificationbo.Admin');
-        $this->description = $this->trans('Get notified when you get new order, new client or new message directly on your browser tab of your back office even if you are working on another page', array(), 'Modules.Faviconnotificationbo.Admin');
+        $this->description = $this->trans('Be notified of each new order, client or message directly in the browser tab of your back office, even when working on another page', array(), 'Modules.Faviconnotificationbo.Admin');
 
         // Settings paths
         $this->js_path = $this->_path.'views/js/';
@@ -68,7 +68,7 @@ class Ps_faviconnotificationbo extends Module
         $this->ps_version = (bool)version_compare(_PS_VERSION_, '1.7', '>=');
 
         // Confirm uninstall
-        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall this module?', array(), 'Modules.Faviconnotificationbo.Admin');
+        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall this module?', array(), 'Admin.Modules.Notification');
         $this->ps_versions_compliancy = array('min' => '1.5', 'max' => _PS_VERSION_);
     }
 
