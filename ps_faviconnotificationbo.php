@@ -98,7 +98,7 @@ class Ps_faviconnotificationbo extends Module
             $this->uninstallTab()) {
             return true;
         } else {
-            $this->_errors[] = $this->trans('There was an error during the uninstallation.', array(), 'Modules.Faviconnotificationbo.Admin');
+            $this->_errors[] = $this->trans('There was an error during the uninstallation.', array(), 'Admin.Modules.Notification');
             return false;
         }
     }
