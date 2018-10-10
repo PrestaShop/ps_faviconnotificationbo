@@ -55,8 +55,8 @@ class Ps_faviconnotificationbo extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->trad('Order Notifications on the Favicon', array(), 'Modules.Faviconnotificationbo.Admin');
-        $this->description = $this->trad('Get notified when you get new order, new client or new message directly on your browser tab of your back office even if you are working on another page', array(), 'Modules.Faviconnotificationbo.Admin');
+        $this->displayName = $this->trans('Order Notifications on the Favicon', array(), 'Modules.Faviconnotificationbo.Admin');
+        $this->description = $this->trans('Get notified when you get new order, new client or new message directly on your browser tab of your back office even if you are working on another page', array(), 'Modules.Faviconnotificationbo.Admin');
 
         // Settings paths
         $this->js_path = $this->_path.'views/js/';
@@ -68,7 +68,7 @@ class Ps_faviconnotificationbo extends Module
         $this->ps_version = (bool)version_compare(_PS_VERSION_, '1.7', '>=');
 
         // Confirm uninstall
-        $this->confirmUninstall = $this->trad('Are you sure you want to uninstall this module?', array(), 'Modules.Faviconnotificationbo.Admin');
+        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall this module?', array(), 'Modules.Faviconnotificationbo.Admin');
         $this->ps_versions_compliancy = array('min' => '1.5', 'max' => _PS_VERSION_);
     }
 
@@ -98,7 +98,7 @@ class Ps_faviconnotificationbo extends Module
             $this->uninstallTab()) {
             return true;
         } else {
-            $this->_errors[] = $this->trad('There was an error during the uninstallation.', array(), 'Modules.Faviconnotificationbo.Admin');
+            $this->_errors[] = $this->trans('There was an error during the uninstallation.', array(), 'Modules.Faviconnotificationbo.Admin');
             return false;
         }
     }
