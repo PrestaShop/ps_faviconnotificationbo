@@ -42,7 +42,7 @@ class Ps_faviconnotificationbo extends Module
     {
         $this->name = 'ps_faviconnotificationbo';
         $this->tab = 'administration';
-        $this->version = '1.0.0';
+        $this->version = '2.0.0';
         $this->author = 'PrestaShop';
         $this->bootstrap = true;
 
@@ -69,7 +69,7 @@ class Ps_faviconnotificationbo extends Module
 
         // Confirm uninstall
         $this->confirmUninstall = $this->trans('Are you sure you want to uninstall this module?', array(), 'Admin.Modules.Notification');
-        $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);
+        $this->ps_versions_compliancy = array('min' => '1.7.6.0', 'max' => _PS_VERSION_);
     }
 
     /**
