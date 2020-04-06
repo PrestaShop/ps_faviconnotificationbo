@@ -17,7 +17,6 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
-
 if (!defined('_PS_VERSION_')) {
     exit;
 }
@@ -27,7 +26,7 @@ if (!defined('_PS_VERSION_')) {
  *
  * @return bool
  */
-function upgrade_module_2_0_1($module)
+function upgrade_module_2_1_0($module)
 {
     $result = true;
 
@@ -50,6 +49,9 @@ function upgrade_module_2_0_1($module)
                 );
         }
     }
+
+    // Remove old ajax controller and add new controller for configuration
+    $result = $result && $module->uninstallTabs() && $module->installTabs();
 
     return $result;
 }
