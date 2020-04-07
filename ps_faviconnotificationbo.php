@@ -30,6 +30,10 @@ if (!defined('_PS_VERSION_')) {
 
 class Ps_faviconnotificationbo extends Module
 {
+    public $adminControllers = array(
+        'adminAjax' => 'AdminAjaxFaviconBO',
+    );
+
     protected static $conf_fields = array(
     'BACKGROUND_COLOR_FAVICONBO',
     'TEXT_COLOR_FAVICONBO',
@@ -48,10 +52,6 @@ class Ps_faviconnotificationbo extends Module
 
         $this->module_key = '91315ca88851b6c2852ee4be0c59b7b1';
         $this->author_address = '0x64aa3c1e4034d07015f639b0e171b0d7b27d01aa';
-
-        $this->controllers = array(
-            'adminAjax' => 'AdminAjaxFaviconBO',
-        );
 
         parent::__construct();
 
@@ -106,44 +106,49 @@ class Ps_faviconnotificationbo extends Module
     /**
      * This method is often use to create an ajax controller
      *
-     * @param none
      * @return bool
      */
     public function installTab()
     {
-        $tab = new Tab();
-        $tab->active = 1;
-        $tab->class_name = 'AdminAjaxFaviconBO';
-        $tab->name = array();
-        foreach (Language::getLanguages(true) as $lang) {
-            $tab->name[$lang['id_lang']] = $this->name;
+        $result = true;
+
+        foreach ($this->adminControllers as $controller_name) {
+            $tab = new Tab();
+            $tab->class_name = $controller_name;
+            $tab->module = $this->name;
+            $tab->active = true;
+            $tab->id_parent = -1;
+            $tab->name = array_fill_keys(
+                Language::getIDs(false),
+                $this->displayName
+            );
+            $result = $result && $tab->add();
         }
-        $tab->id_parent = -1;
-        $tab->module = $this->name;
-        return $tab->add();
+
+        return $result;
     }
 
     /**
      * uninstall tab
      *
-     * @param none
      * @return bool
      */
     public function uninstallTab()
     {
-        $id_tab = (int)Tab::getIdFromClassName('AdminAjaxFaviconBO');
-        if ($id_tab) {
+        $result = true;
+
+        foreach ($this->adminControllers as $controller_name) {
+            $id_tab = (int) Tab::getIdFromClassName($controller_name);
             $tab = new Tab($id_tab);
+
             if (Validate::isLoadedObject($tab)) {
-                return ($tab->delete());
-            } else {
-                $return = false;
+                $result = $result && $tab->delete();
             }
-        } else {
-            $return = true;
         }
-        return $return;
+
+        return $result;
     }
+
     /**
      * load dependencies in the configuration of the module
      */
@@ -186,12 +191,6 @@ class Ps_faviconnotificationbo extends Module
      */
     public function getContent()
     {
-        if ($this->ps_version) {
-            $params = array('configure' => $this->name);
-            $moduleAdminLink = Context::getContext()->link->getAdminLink('AdminModules', true, false, $params);
-        } else {
-            $moduleAdminLink = Context::getContext()->link->getAdminLink('AdminModules', true).'&configure='.$this->name.'&module_name='.$this->name;
-        }
         $faq = $this->loadFaq(); // load faq from addons api
         $this->loadAsset(); // load js and css
 
@@ -217,7 +216,7 @@ class Ps_faviconnotificationbo extends Module
         $this->context->smarty->assign(array(
             'module_name' => $this->name,
             'module_version' => $this->version,
-            'moduleAdminLink' => $moduleAdminLink,
+            'moduleAdminLink' => $this->context->link->getAdminLink('AdminModules', true, false, array('configure' => $this->name)),
             'module_display' => $this->displayName,
             'apifaq' => $faq,
             'doc' => $doc,
