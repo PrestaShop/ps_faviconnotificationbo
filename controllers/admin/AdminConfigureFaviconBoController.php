@@ -32,31 +32,31 @@ class AdminConfigureFaviconBoController extends ModuleAdminController
                 'title' => $this->trans('Configuration', [], 'Admin.Global'),
                 'info' => $this->trans('Display notifications in the browser tab for:', [], 'Modules.Faviconnotificationbo.Admin'),
                 'fields' => [
-                    'CHECKBOX_ORDER' => [
+                    Ps_faviconnotificationbo::CONFIG_COUNT_ORDER_NOTIFICATION => [
                         'type' => 'bool',
                         'title' => $this->trans('New orders', [], 'Modules.Faviconnotificationbo.Admin'),
                         'validation' => 'isBool',
                         'cast' => 'intval',
                     ],
-                    'CHECKBOX_CUSTOMER' => [
+                    Ps_faviconnotificationbo::CONFIG_COUNT_CUSTOMER_NOTIFICATION => [
                         'type' => 'bool',
                         'title' => $this->trans('New customers', [], 'Admin.Navigation.Header'),
                         'validation' => 'isBool',
                         'cast' => 'intval',
                     ],
-                    'CHECKBOX_MESSAGE' => [
+                    Ps_faviconnotificationbo::CONFIG_COUNT_MSG_NOTIFICATION => [
                         'type' => 'bool',
                         'title' => $this->trans('New messages', [], 'Admin.Orderscustomers.Feature'),
                         'validation' => 'isBool',
                         'cast' => 'intval',
                     ],
-                    'BACKGROUND_COLOR_FAVICONBO' => [
+                    Ps_faviconnotificationbo::CONFIG_FAVICON_BACKGROUND_COLOR => [
                         'type' => 'color',
                         'title' => $this->trans('Notification background color', [], 'Modules.Faviconnotificationbo.Admin'),
                         'validation' => 'isColor',
                         'required' => false,
                     ],
-                    'TEXT_COLOR_FAVICONBO' => [
+                    Ps_faviconnotificationbo::CONFIG_FAVICON_TXT_COLOR => [
                         'type' => 'color',
                         'title' => $this->trans('Notification text color', [], 'Modules.Faviconnotificationbo.Admin'),
                         'validation' => 'isColor',

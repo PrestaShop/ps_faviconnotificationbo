@@ -41,6 +41,12 @@ class Ps_faviconnotificationbo extends Module
         'displayBackOfficeHeader',
     ];
 
+    const CONFIG_COUNT_ORDER_NOTIFICATION = 'CHECKBOX_ORDER';
+    const CONFIG_COUNT_CUSTOMER_NOTIFICATION = 'CHECKBOX_CUSTOMER';
+    const CONFIG_COUNT_MSG_NOTIFICATION = 'CHECKBOX_MESSAGE';
+    const CONFIG_FAVICON_BACKGROUND_COLOR = 'BACKGROUND_COLOR_FAVICONBO';
+    const CONFIG_FAVICON_TXT_COLOR = 'TEXT_COLOR_FAVICONBO';
+
     public function __construct()
     {
         $this->name = 'ps_faviconnotificationbo';
@@ -74,11 +80,11 @@ class Ps_faviconnotificationbo extends Module
      */
     public function installConfiguration()
     {
-        return (bool) Configuration::updateValue('CHECKBOX_ORDER', '1')
-            && (bool) Configuration::updateValue('CHECKBOX_CUSTOMER', '1')
-            && (bool) Configuration::updateValue('CHECKBOX_MESSAGE', '1')
-            && (bool) Configuration::updateValue('BACKGROUND_COLOR_FAVICONBO', '#DF0067')
-            && (bool) Configuration::updateValue('TEXT_COLOR_FAVICONBO', '#FFFFFF');
+        return (bool) Configuration::updateValue(static::CONFIG_COUNT_ORDER_NOTIFICATION, '1')
+            && (bool) Configuration::updateValue(static::CONFIG_COUNT_CUSTOMER_NOTIFICATION, '1')
+            && (bool) Configuration::updateValue(static::CONFIG_COUNT_MSG_NOTIFICATION, '1')
+            && (bool) Configuration::updateValue(static::CONFIG_FAVICON_BACKGROUND_COLOR, '#DF0067')
+            && (bool) Configuration::updateValue(static::CONFIG_FAVICON_TXT_COLOR, '#FFFFFF');
     }
 
     /**
@@ -123,11 +129,11 @@ class Ps_faviconnotificationbo extends Module
      */
     public function uninstallConfiguration()
     {
-        return (bool) Configuration::deleteByName('CHECKBOX_ORDER')
-            && (bool) Configuration::deleteByName('CHECKBOX_CUSTOMER')
-            && (bool) Configuration::deleteByName('CHECKBOX_MESSAGE')
-            && (bool) Configuration::deleteByName('BACKGROUND_COLOR_FAVICONBO')
-            && (bool) Configuration::deleteByName('TEXT_COLOR_FAVICONBO');
+        return (bool) Configuration::deleteByName(static::CONFIG_COUNT_ORDER_NOTIFICATION)
+            && (bool) Configuration::deleteByName(static::CONFIG_COUNT_CUSTOMER_NOTIFICATION)
+            && (bool) Configuration::deleteByName(static::CONFIG_COUNT_MSG_NOTIFICATION)
+            && (bool) Configuration::deleteByName(static::CONFIG_FAVICON_BACKGROUND_COLOR)
+            && (bool) Configuration::deleteByName(static::CONFIG_FAVICON_TXT_COLOR);
     }
 
     /**
@@ -166,11 +172,11 @@ class Ps_faviconnotificationbo extends Module
         ]);
 
         $this->context->smarty->assign([
-            'bofaviconBgColor' => Configuration::get('BACKGROUND_COLOR_FAVICONBO'),
-            'bofaviconTxtColor' => Configuration::get('TEXT_COLOR_FAVICONBO'),
-            'bofaviconOrder' => Configuration::get('CHECKBOX_ORDER'),
-            'bofaviconCustomer' => Configuration::get('CHECKBOX_CUSTOMER'),
-            'bofaviconMsg' => Configuration::get('CHECKBOX_MESSAGE'),
+            'bofaviconBgColor' => Configuration::get(static::CONFIG_FAVICON_BACKGROUND_COLOR),
+            'bofaviconTxtColor' => Configuration::get(static::CONFIG_FAVICON_TXT_COLOR),
+            'bofaviconOrder' => Configuration::get(static::CONFIG_COUNT_ORDER_NOTIFICATION),
+            'bofaviconCustomer' => Configuration::get(static::CONFIG_COUNT_CUSTOMER_NOTIFICATION),
+            'bofaviconMsg' => Configuration::get(static::CONFIG_COUNT_MSG_NOTIFICATION),
             'bofaviconUrl' => $this->context->link->getAdminLink('AdminCommon'),
         ]);
 
