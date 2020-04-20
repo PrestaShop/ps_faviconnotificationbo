@@ -18,13 +18,15 @@
  *}
 
 <script>
+  if (undefined !== ps_faviconnotificationbo) {
     ps_faviconnotificationbo.initialize({
-        backgroundColor: '{$bofaviconBgColor|escape:'javascript'}',
-        textColor: '{$bofaviconTxtColor|escape:'javascript'}',
-        notificationGetUrl: '{$bofaviconUrl|escape:'javascript'}',
-        CHECKBOX_ORDER: {$bofaviconOrder|boolval},
-        CHECKBOX_CUSTOMER: {$bofaviconCustomer|boolval},
-        CHECKBOX_MESSAGE: {$bofaviconMsg|boolval},
-        timer: 120000, // Refresh every 2 minutes
+      backgroundColor: '{$bofaviconBgColor|escape:'javascript'}',
+      textColor: '{$bofaviconTxtColor|escape:'javascript'}',
+      notificationGetUrl: '{$bofaviconUrl|escape:'javascript'}',
+      CHECKBOX_ORDER: {$bofaviconOrder|boolval},
+      CHECKBOX_CUSTOMER: {$bofaviconCustomer|boolval},
+      CHECKBOX_MESSAGE: {$bofaviconMsg|boolval},
+      timer: 120000, // Refresh every 2 minutes
     });
+  }
 </script>
