@@ -33,19 +33,17 @@ class Ps_faviconnotificationbo extends Module
      */
     public $bootstrap;
 
-    public $adminControllers = [
-        'adminConfigure' => 'AdminConfigureFaviconBo',
-    ];
-
-    public $hooks = [
-        'displayBackOfficeHeader',
-    ];
-
     const CONFIG_COUNT_ORDER_NOTIFICATION = 'CHECKBOX_ORDER';
     const CONFIG_COUNT_CUSTOMER_NOTIFICATION = 'CHECKBOX_CUSTOMER';
     const CONFIG_COUNT_MSG_NOTIFICATION = 'CHECKBOX_MESSAGE';
     const CONFIG_FAVICON_BACKGROUND_COLOR = 'BACKGROUND_COLOR_FAVICONBO';
     const CONFIG_FAVICON_TXT_COLOR = 'TEXT_COLOR_FAVICONBO';
+    const HOOKS = [
+        'displayBackOfficeHeader',
+    ];
+    const ADMINCONTROLLERS = [
+        'adminConfigure' => 'AdminConfigureFaviconBo',
+    ];
 
     public function __construct()
     {
@@ -70,7 +68,7 @@ class Ps_faviconnotificationbo extends Module
     public function install()
     {
         return parent::install()
-            && $this->registerHook($this->hooks)
+            && $this->registerHook(static::HOOKS)
             && $this->installConfiguration()
             && $this->installTabs();
     }
@@ -94,7 +92,7 @@ class Ps_faviconnotificationbo extends Module
     {
         $result = true;
 
-        foreach ($this->adminControllers as $controller_name) {
+        foreach (static::ADMINCONTROLLERS as $controller_name) {
             if (Tab::getIdFromClassName($controller_name)) {
                 continue;
             }
@@ -156,7 +154,7 @@ class Ps_faviconnotificationbo extends Module
      */
     public function getContent()
     {
-        Tools::redirectAdmin($this->context->link->getAdminLink($this->adminControllers['adminConfigure']));
+        Tools::redirectAdmin($this->context->link->getAdminLink(static::ADMINCONTROLLERS['adminConfigure']));
     }
 
     /**

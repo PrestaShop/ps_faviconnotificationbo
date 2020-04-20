@@ -31,23 +31,12 @@ function upgrade_module_2_1_0($module)
     $result = true;
 
     // Remove our ModuleAdminControllers from SEO & URLs page
-    foreach ($module->adminControllers as $controller) {
-        $metaId = Db::getInstance()->getValue('
-            SELECT id_meta
-            FROM `' . _DB_PREFIX_ . 'meta`
-            WHERE page="' . pSQL('module-' . $module->name . '-' . $controller) . '"'
-        );
+    $metaCollection = new PrestaShopCollection('Meta');
+    $metaCollection->where('page', 'like', 'module-' . $module->name . '-%');
 
-        if ($metaId) {
-            $result = $result && Db::getInstance()->delete(
-                    'meta_lang',
-                    'id_meta = ' . (int) $metaId
-                );
-            $result = $result && Db::getInstance()->delete(
-                    'meta',
-                    'id_meta = ' . (int) $metaId
-                );
-        }
+    foreach ($metaCollection->getAll() as $meta) {
+        /** @var Meta $meta */
+        $result = $result && (bool) $meta->delete();
     }
 
     // Remove old ajax controller and add new controller for configuration
