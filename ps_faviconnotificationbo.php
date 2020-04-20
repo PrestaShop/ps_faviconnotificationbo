@@ -23,16 +23,6 @@ if (!defined('_PS_VERSION_')) {
 
 class Ps_faviconnotificationbo extends Module
 {
-    /**
-     * @var string
-     */
-    public $confirmUninstall;
-
-    /**
-     * @var bool
-     */
-    public $bootstrap;
-
     const CONFIG_COUNT_ORDER_NOTIFICATION = 'CHECKBOX_ORDER';
     const CONFIG_COUNT_CUSTOMER_NOTIFICATION = 'CHECKBOX_CUSTOMER';
     const CONFIG_COUNT_MSG_NOTIFICATION = 'CHECKBOX_MESSAGE';
@@ -51,14 +41,12 @@ class Ps_faviconnotificationbo extends Module
         $this->tab = 'administration';
         $this->version = '2.1.0';
         $this->author = 'PrestaShop';
-        $this->bootstrap = true;
         $this->module_key = '91315ca88851b6c2852ee4be0c59b7b1';
 
         parent::__construct();
 
         $this->displayName = $this->trans('Order Notifications on the Favicon', [], 'Modules.Faviconnotificationbo.Admin');
         $this->description = $this->trans('Be notified of each new order, client or message directly in the browser tab of your back office, even when working on another page', [], 'Modules.Faviconnotificationbo.Admin');
-        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall this module?', [], 'Admin.Modules.Notification');
         $this->ps_versions_compliancy = ['min' => '1.7.6.0', 'max' => _PS_VERSION_];
     }
 

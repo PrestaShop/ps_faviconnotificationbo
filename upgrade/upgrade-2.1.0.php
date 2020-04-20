@@ -32,7 +32,7 @@ function upgrade_module_2_1_0($module)
 
     // Remove our ModuleAdminControllers from SEO & URLs page
     $metaCollection = new PrestaShopCollection('Meta');
-    $metaCollection->where('page', 'like', 'module-' . $module->name . '-%');
+    $metaCollection->where('page', 'like', 'module-' . $module->name . '-Admin%');
 
     foreach ($metaCollection->getAll() as $meta) {
         /** @var Meta $meta */
