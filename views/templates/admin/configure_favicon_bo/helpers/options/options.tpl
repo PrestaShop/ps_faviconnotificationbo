@@ -20,19 +20,24 @@
 {extends file="helpers/options/options.tpl"}
 
 {block name="input"}
-    {if $field['type'] == 'color'}
-        <div class="col-lg-2">
-            <div class="input-group">
-                <input
-                        type="color"
-                        data-hex="true"
-                        class="{if isset($input.class)}{$field['class']}{else}color mColorPickerInput{/if}"
-                        name="{$key}"
-                        value="{$field['value']|escape:'html':'UTF-8'}"
-                />
-            </div>
-        </div>
-    {else}
-        {$smarty.block.parent}
-    {/if}
+  {if $field['type'] == 'color'}
+    <div class="col-lg-2">
+      <div class="input-group">
+        <input
+                type="color"
+                data-hex="true"
+                class="{if isset($input.class)}{$field['class']}{else}color mColorPickerInput{/if}"
+                name="{$key}"
+                value="{$field['value']|escape:'html':'UTF-8'}"
+        />
+      </div>
+    </div>
+  {else}
+    {$smarty.block.parent}
+  {/if}
 {/block}
+
+<script type="text/javascript">
+  // https://github.com/PrestaShop/PrestaShop/pull/18757
+  $.fn.mColorPicker.defaults.imageFolder = baseDir + 'img/admin/';
+</script>
