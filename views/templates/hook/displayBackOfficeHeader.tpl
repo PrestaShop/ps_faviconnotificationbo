@@ -23,9 +23,9 @@
       backgroundColor: '{$bofaviconBgColor|escape:'javascript'}',
       textColor: '{$bofaviconTxtColor|escape:'javascript'}',
       notificationGetUrl: '{$bofaviconUrl|escape:'javascript'}',
-      CHECKBOX_ORDER: {$bofaviconOrder|boolval},
-      CHECKBOX_CUSTOMER: {$bofaviconCustomer|boolval},
-      CHECKBOX_MESSAGE: {$bofaviconMsg|boolval},
+      CHECKBOX_ORDER: {$bofaviconOrder|intval},
+      CHECKBOX_CUSTOMER: {$bofaviconCustomer|intval},
+      CHECKBOX_MESSAGE: {$bofaviconMsg|intval},
       timer: 120000, // Refresh every 2 minutes
     });
   }

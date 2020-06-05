@@ -44,12 +44,12 @@ let ps_faviconnotificationbo = {};
             notificationRequest.done(function(data) {
                 let total = 0;
 
-                if (config.CHECKBOX_ORDER && undefined !== data.customer && undefined !== data.customer.total) {
-                    total += parseInt(data.customer.total, 10);
+                if (config.CHECKBOX_ORDER && undefined !== data.order && undefined !== data.order.total) {
+                    total += parseInt(data.order.total, 10);
                 }
 
-                if (config.CHECKBOX_CUSTOMER && undefined !== data.order && undefined !== data.order.total) {
-                    total += parseInt(data.order.total, 10);
+                if (config.CHECKBOX_CUSTOMER && undefined !== data.customer && undefined !== data.customer.total) {
+                    total += parseInt(data.customer.total, 10);
                 }
 
                 if (config.CHECKBOX_MESSAGE && undefined !== data.customer_message && undefined !== data.customer_message.total) {
