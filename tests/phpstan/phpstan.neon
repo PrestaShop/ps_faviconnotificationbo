@@ -1,0 +1,12 @@
+parameters:
+	bootstrap: tests/phpstan/bootstrap.php
+	paths:
+		- controllers
+		- ps_faviconnotificationbo.php
+	dynamicConstantNames:
+		- _PS_VERSION_
+	ignoreErrors:
+		- '#Property ModuleCore::\$version \(float\) does not accept string.#'
+		- '#Property TabCore::\$name \(string\) does not accept array<string>.#'
+
+	level: 5

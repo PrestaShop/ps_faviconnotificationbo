@@ -17,7 +17,6 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
-
 if (!defined('_PS_VERSION_')) {
     exit;
 }
@@ -27,29 +26,21 @@ if (!defined('_PS_VERSION_')) {
  *
  * @return bool
  */
-function upgrade_module_2_0_1($module)
+function upgrade_module_2_1_0($module)
 {
     $result = true;
 
     // Remove our ModuleAdminControllers from SEO & URLs page
-    foreach ($module->adminControllers as $controller) {
-        $metaId = Db::getInstance()->getValue('
-            SELECT id_meta
-            FROM `' . _DB_PREFIX_ . 'meta`
-            WHERE page="' . pSQL('module-' . $module->name . '-' . $controller) . '"'
-        );
+    $metaCollection = new PrestaShopCollection('Meta');
+    $metaCollection->where('page', 'like', 'module-' . $module->name . '-Admin%');
 
-        if ($metaId) {
-            $result = $result && Db::getInstance()->delete(
-                    'meta_lang',
-                    'id_meta = ' . (int) $metaId
-                );
-            $result = $result && Db::getInstance()->delete(
-                    'meta',
-                    'id_meta = ' . (int) $metaId
-                );
-        }
+    foreach ($metaCollection->getAll() as $meta) {
+        /** @var Meta $meta */
+        $result = $result && (bool) $meta->delete();
     }
+
+    // Remove old ajax controller and add new controller for configuration
+    $result = $result && $module->uninstallTabs() && $module->installTabs();
 
     return $result;
 }
