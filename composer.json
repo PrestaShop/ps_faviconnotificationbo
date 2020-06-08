@@ -14,7 +14,7 @@
     "php": ">=5.6"
   },
   "require-dev": {
-    "prestashop/php-dev-tools": "^2.2"
+    "prestashop/php-dev-tools": "^3.4"
   },
   "config": {
     "platform": {
