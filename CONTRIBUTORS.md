@@ -1,0 +1,11 @@
+GitHub contributors:
+--------------------------------
+ - Kamel Boukhateb
+ - Matt75
+ - PierreRambaud
+ - Progi1984
+ - Shiryu75
+ - clementdaubeuf
+ - eternoendless
+ - marionf
+ - matks

@@ -17,12 +17,30 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
-header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
-header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
 
-header('Cache-Control: no-store, no-cache, must-revalidate');
-header('Cache-Control: post-check=0, pre-check=0', false);
-header('Pragma: no-cache');
+/**
+ * @param Ps_faviconnotificationbo $module
+ *
+ * @return bool
+ */
+function upgrade_module_2_1_0($module)
+{
+    $result = true;
 
-header('Location: ../');
-exit;
+    // Remove our ModuleAdminControllers from SEO & URLs page
+    $metaCollection = new PrestaShopCollection('Meta');
+    $metaCollection->where('page', 'like', 'module-' . $module->name . '-Admin%');
+
+    foreach ($metaCollection->getAll() as $meta) {
+        /** @var Meta $meta */
+        $result = $result && (bool) $meta->delete();
+    }
+
+    // Remove old ajax controller and add new controller for configuration
+    $result = $result && $module->uninstallTabs() && $module->installTabs();
+
+    return $result;
+}

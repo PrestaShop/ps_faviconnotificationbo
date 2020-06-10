@@ -1,5 +1,4 @@
-<?php
-/**
+{**
  * 2007-2020 PrestaShop and Contributors
  *
  * NOTICE OF LICENSE
@@ -16,13 +15,32 @@
  * @copyright 2007-2020 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
- */
-header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
-header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+ *}
 
-header('Cache-Control: no-store, no-cache, must-revalidate');
-header('Cache-Control: post-check=0, pre-check=0', false);
-header('Pragma: no-cache');
+{extends file="helpers/options/options.tpl"}
 
-header('Location: ../');
-exit;
+{block name="input"}
+  {if $field['type'] == 'color'}
+    <div class="col-lg-2">
+      <div class="input-group">
+        <input
+                type="color"
+                data-hex="true"
+                class="{if isset($input.class)}{$field['class']}{else}color mColorPickerInput{/if}"
+                name="{$key}"
+                value="{$field['value']|escape:'html':'UTF-8'}"
+        />
+      </div>
+    </div>
+  {else}
+    {$smarty.block.parent}
+  {/if}
+{/block}
+
+{block name="after"}
+  {$smarty.block.parent}
+  <script type="text/javascript">
+    // https://github.com/PrestaShop/PrestaShop/pull/18757
+    $.fn.mColorPicker.defaults.imageFolder = baseDir + 'img/admin/';
+  </script>
+{/block}
