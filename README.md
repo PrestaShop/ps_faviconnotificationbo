@@ -2,7 +2,7 @@
 
 ## About
 
-Displays a small icon over the favicon, only in back office, showing the number of notifications
+Get notified directly on your browser tab each time you get a new order, customer or message.
 
 ## Reporting issues
 
