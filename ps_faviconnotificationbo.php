@@ -46,7 +46,7 @@ class Ps_faviconnotificationbo extends Module
         parent::__construct();
 
         $this->displayName = $this->trans('Order Notifications on the Favicon', [], 'Modules.Faviconnotificationbo.Admin');
-        $this->description = $this->trans('Be notified of each new order, client or message directly in the browser tab of your back office, even when working on another page', [], 'Modules.Faviconnotificationbo.Admin');
+        $this->description = $this->trans('Get notified directly on your browser tab each time you get a new order, customer or message.', [], 'Modules.Faviconnotificationbo.Admin');
         $this->ps_versions_compliancy = ['min' => '1.7.6.0', 'max' => _PS_VERSION_];
     }
 
