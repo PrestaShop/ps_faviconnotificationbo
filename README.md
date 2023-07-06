@@ -4,6 +4,10 @@
 
 Get notified directly on your browser tab each time you get a new order, customer or message.
 
+## Compatibility
+
+PrestaShop: `1.7.6.0` or later
+
 ## Reporting issues
 
 You can report issues with this module in the main PrestaShop repository. [Click here to report an issue][report-issue]. 
