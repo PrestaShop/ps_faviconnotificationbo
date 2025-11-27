@@ -10,11 +10,11 @@ PrestaShop: `1.7.6.0` or later
 
 ## Reporting issues
 
-You can report issues with this module in the main PrestaShop repository. [Click here to report an issue][report-issue]. 
+You can report issues with this module in the main PrestaShop repository. [Click here to report an issue][report-issue].
 
 ## How to test
 
-Link to specs : https://docs.prestashop-project.org/functional-documentation/functional-documentation/ux-ui/back-office/improve/modules/favicon-notifications-in-the-back-office-ps_faviconnotificationbo 
+Link to specs : https://docs.prestashop-project.org/functional-documentation/functional-documentation/ux-ui/back-office/improve/modules/favicon-notifications-in-the-back-office-ps_faviconnotificationbo
 
 In BO, check that notifications are displayed on the favicon when now orders, new customers and new messages are coming in.
 In configuration form, edit notification background color and text color and check that the result is correct.
@@ -33,9 +33,15 @@ PrestaShop modules are open source extensions to the [PrestaShop e-commerce plat
 
 Just make sure to follow our [contribution guidelines][contribution-guidelines].
 
+## Creating a new release (WIP)
+
+- Bump version number (use [Semantic Versioning](https://semver.org/))
+- Check if you need any upgrade scripts for your new version
+- TODO: new release documentation is incomplete
+
 ## License
 
-This module is released under the [Academic Free License 3.0][AFL-3.0] 
+This module is released under the [Academic Free License 3.0][AFL-3.0]
 
 [report-issue]: https://github.com/PrestaShop/PrestaShop/issues/new/choose
 [prestashop]: https://www.prestashop.com/
