@@ -33,12 +33,6 @@ PrestaShop modules are open source extensions to the [PrestaShop e-commerce plat
 
 Just make sure to follow our [contribution guidelines][contribution-guidelines].
 
-## Creating a new release (WIP)
-
-- Bump version number (use [Semantic Versioning](https://semver.org/))
-- Check if you need any upgrade scripts for your new version
-- TODO: new release documentation is incomplete
-
 ## License
 
 This module is released under the [Academic Free License 3.0][AFL-3.0]
