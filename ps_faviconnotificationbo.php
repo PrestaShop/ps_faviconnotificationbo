@@ -39,7 +39,7 @@ class Ps_faviconnotificationbo extends Module
     {
         $this->name = 'ps_faviconnotificationbo';
         $this->tab = 'administration';
-        $this->version = '2.1.4';
+        $this->version = '3.0.0';
         $this->author = 'PrestaShop';
         $this->module_key = '91315ca88851b6c2852ee4be0c59b7b1';
 
