@@ -6,7 +6,7 @@ Get notified directly on your browser tab each time you get a new order, custome
 
 ## Compatibility
 
-PrestaShop: `8.1.0` or later
+PrestaShop: `8.2.0` or later
 
 ## Reporting issues
 

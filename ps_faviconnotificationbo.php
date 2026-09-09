@@ -39,7 +39,7 @@ class Ps_faviconnotificationbo extends Module
     {
         $this->name = 'ps_faviconnotificationbo';
         $this->tab = 'administration';
-        $this->version = '2.1.4';
+        $this->version = '3.0.0';
         $this->author = 'PrestaShop';
         $this->module_key = '91315ca88851b6c2852ee4be0c59b7b1';
 
@@ -47,7 +47,7 @@ class Ps_faviconnotificationbo extends Module
 
         $this->displayName = $this->trans('Order Notifications on the Favicon', [], 'Modules.Faviconnotificationbo.Admin');
         $this->description = $this->trans('Get notified directly on your browser tab each time you get a new order, customer or message.', [], 'Modules.Faviconnotificationbo.Admin');
-        $this->ps_versions_compliancy = ['min' => '8.1.0', 'max' => _PS_VERSION_];
+        $this->ps_versions_compliancy = ['min' => '8.2.0', 'max' => _PS_VERSION_];
     }
 
     /**
